@@ -15,7 +15,7 @@ const Transaction = ({ transaction }) => {
         {sign}₱{Math.abs(transaction.amount)}
       </span>{' '}
       <button
-        onClick={() => deleteTransaction(transaction.id)}
+        onClick={() => deleteTransaction(transaction._id)}
         className="delete-btn">
         X
       </button>

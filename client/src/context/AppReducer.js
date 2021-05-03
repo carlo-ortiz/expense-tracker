@@ -1,16 +1,31 @@
+import * as Constants from '../constants/Constants';
+
 const action = (state, action) => {
   switch (action.type) {
-    case 'DELETE_TRANSACTION':
+    case Constants.GET_TRANSACTIONS:
+      return {
+        ...state,
+        loading: false,
+        transactions: action.payload,
+      };
+
+    case Constants.DELETE_TRANSACTION:
       return {
         ...state,
         transactions: state.transactions.filter(
-          (transaction) => transaction.id !== action.payload
+          (transaction) => transaction._id !== action.payload
         ),
       };
-    case 'ADD_TRANSACTION':
+    case Constants.ADD_TRANSACTION:
       return {
         ...state,
-        transactions: [action.payload, ...state.transactions],
+        transactions: [...state.transactions, action.payload],
+      };
+    case Constants.TRANSACTION_ERROR:
+      return {
+        ...state,
+        error: action.payload,
+        loading: false,
       };
 
     default:
