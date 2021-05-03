@@ -1,0 +1,12 @@
+@base_url = http://localhost:5000/api/v1
+
+GET {{base_url}}/transactions HTTP/1.1
+Content-Type: application/json
+###
+
+POST {{base_url}}/transactions HTTP/1.1
+Content-Type: application/json
+###
+
+DELETE {{base_url}}/transactions/1 HTTP/1.1
+Content-Type: application/json
